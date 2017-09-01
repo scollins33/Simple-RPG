@@ -1,0 +1,22 @@
+html {
+
+}
+
+.card {
+    width: 125px;
+    margin: 15px;
+}
+
+.characterSelect {
+    margin-bottom: 20px;
+}
+
+.well {
+    background-color: #eeeeee;
+}
+
+#header {
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+}
