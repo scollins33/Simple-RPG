@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Simple RPG</title>
+    <title>BlazBlue TCG</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -24,7 +24,7 @@
     //-->
 
     <div id="header">
-        <h1>Simple RPG</h1>
+        <h1>BlazBlue Super Card Buddy RPG Fight</h1>
         <hr>
     </div>
 
@@ -33,50 +33,49 @@
             <!-- 2/3 Area to contain active board state and feedback -->
             <div class="col-md-8">
 
-                <!-- Character Select Row -->
+                <!-- Character Select row -->
                 <div class="row">
-                    <div class="characterSelect">
+                    <div id="characterSelect">
+                        <!-- opening instructions -->
+                        <h2 class="text-center">Select your fighter!</h2>
 
-                        <!-- Character Card template -->
-                        <div class="charCard card text-center float-left">
-                            <img class="charImage card-img-top"
-                                 src="http://via.placeholder.com/100x100" alt="">
-                            <h5 class="charName card-title">Test Card</h5>
-                            <p class="charHP card-text">HP: 100</p>
+                        <!-- Character Selection Card templates -->
+                        <div id="char1" class="card text-center float-left pickable">
+                            <img class="card-img-top card-image"
+                                 src="assets/images/char1.png" alt="">
+                            <h5 class="card-title">Es Mitsurugi</h5>
+                            <p id="char1hp" class="card-text"></p>
                         </div>
 
-                        <!-- Character Card template -->
-                        <div class="charCard card text-center float-left">
-                            <img class="charImage card-img-top"
-                                 src="http://via.placeholder.com/100x100" alt="">
-                            <h5 class="charName card-title">Test Card</h5>
-                            <p class="charHP card-text">HP: 100</p>
+                        <div id="char2" class="card text-center float-left pickable">
+                            <img class="card-img-top card-image"
+                                 src="assets/images/char2.png" alt="">
+                            <h5 class="card-title">Lambda-11</h5>
+                            <p id="char2hp" class="card-text"></p>
                         </div>
 
-                        <!-- Character Card template -->
-                        <div class="charCard card text-center float-left">
-                            <img class="charImage card-img-top"
-                                 src="http://via.placeholder.com/100x100" alt="">
-                            <h5 class="charName card-title">Test Card</h5>
-                            <p class="charHP card-text">HP: 100</p>
+                        <div id="char3" class="card text-center float-left pickable">
+                            <img class="card-img-top card-image"
+                                 src="assets/images/char3.png" alt="">
+                            <h5 class="card-title">Platinum Trinity</h5>
+                            <p id="char3hp" class="card-text"></p>
                         </div>
 
-                        <!-- Character Card template -->
-                        <div class="charCard card text-center float-left">
-                            <img class="charImage card-img-top"
-                                 src="http://via.placeholder.com/100x100" alt="">
-                            <h5 class="charName card-title">Test Card</h5>
-                            <p class="charHP card-text">HP: 100</p>
+                        <div id="char4" class="card text-center float-left pickable">
+                            <img class="card-img-top card-image"
+                                 src="assets/images/char4.png" alt="">
+                            <h5 class="card-title">Tsubaki Yayoi</h5>
+                            <p id="char4hp" class="card-text"></p>
                         </div>
 
                     </div>
                 </div>
 
                 <!-- Active Board row -->
-                <div class="row">
+                <div id="activeBoard" class="row">
 
-                    <div class="playerArea col-md-4">
-
+                    <!-- Player Area -->
+                    <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <h3>Player</h3>
@@ -84,22 +83,15 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 pagination justify-content-center">
-                                <!-- Character Card template -->
-                                <div class="charCard card text-center float-left">
-                                    <img class="charImage card-img-top"
-                                         src="http://via.placeholder.com/100x100" alt="">
-                                    <h5 class="charName card-title">Test Card</h5>
-                                    <p class="charHP card-text">HP: 100</p>
-                                </div>
-
+                            <!-- div for player card -->
+                            <div id="playerArea" class="col-md-12 pagination justify-content-center">
+                                <!-- Move selected player to the active area -->
                             </div>
                         </div>
-
                     </div>
 
-                    <div class="attackArea col-md-4">
-
+                    <!-- Attack Area -->
+                    <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <h3>Attack!</h3>
@@ -109,30 +101,25 @@
 
                         <div class="row">
                             <div class="col-md-12 pagination justify-content-center">
-                                <button class="btn btn-danger">Attack!</button>
+                                <!-- button to attack -->
+                                <button id="attackButton" class="btn btn-danger">Attack!</button>
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="enemyArea col-md-4">
-
+                    <!-- Enemy Area -->
+                    <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <h3>Opponent</h3>
                                 <hr>
                             </div>
                         </div>
-
                         <div class="row">
-                            <div class="col-md-12 pagination justify-content-center">
-                                <!-- Character Card template -->
-                                <div class="charCard card text-center float-left">
-                                    <img class="charImage card-img-top"
-                                         src="http://via.placeholder.com/100x100" alt="">
-                                    <h5 class="charName card-title">Test Card</h5>
-                                    <p class="charHP card-text">HP: 100</p>
-                                </div>
+                            <!-- div for enemy card -->
+                            <div id="enemyArea" class="col-md-12 pagination justify-content-center">
+                                <!-- Move selected Enemy to the active area -->
                             </div>
                         </div>
 
@@ -140,12 +127,12 @@
                 </div>
 
                 <!-- Game State output row -->
-                <div class="row">
+                <div id="gameLogArea" class="row">
 
-                    <div class="gameLogArea col-md-12 well">
-
+                    <div class="col-md-12 well">
                         <div class="well">
-                            <p class="gameLog">Damage and State get logged here</p>
+                            <!-- p tag for logging -->
+                            <p id="gameLog">Damage and State get logged here</p>
                         </div>
                     </div>
 
@@ -156,8 +143,8 @@
             <!-- 1/3 Area to contain the enemy bench -->
             <div class="col-md-4">
 
-                    <div class="enemyBenchArea col-md-12">
-
+                    <!-- Enemy Bench Area -->
+                    <div id="enemyBenchArea" class="col-md-12">
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Enemy Bench</h3>
@@ -165,40 +152,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-
-                                <!-- Character Card template -->
-                                <div class="charCard card text-center float-left">
-                                    <img class="charImage card-img-top"
-                                         src="http://via.placeholder.com/100x100" alt="">
-                                    <h5 class="charName card-title">Test Card</h5>
-                                    <p class="charHP card-text">HP: 100</p>
-                                </div>
-
-                                <!-- Character Card template -->
-                                <div class="charCard card text-center float-left">
-                                    <img class="charImage card-img-top"
-                                         src="http://via.placeholder.com/100x100" alt="">
-                                    <h5 class="charName card-title">Test Card</h5>
-                                    <p class="charHP card-text">HP: 100</p>
-                                </div>
-
-                                <!-- Character Card template -->
-                                <div class="charCard card text-center float-left">
-                                    <img class="charImage card-img-top"
-                                         src="http://via.placeholder.com/100x100" alt="">
-                                    <h5 class="charName card-title">Test Card</h5>
-                                    <p class="charHP card-text">HP: 100</p>
-                                </div>
-
-                                <!-- Character Card template -->
-                                <div class="charCard card text-center float-left">
-                                    <img class="charImage card-img-top"
-                                         src="http://via.placeholder.com/100x100" alt="">
-                                    <h5 class="charName card-title">Test Card</h5>
-                                    <p class="charHP card-text">HP: 100</p>
-                                </div>
-
+                            <!-- div for enemies on the bench -->
+                            <div id="enemyBench" class="col-md-12">
+                                <!-- Move Enemies to the Bench -->
                             </div>
                         </div>
                     </div>
@@ -208,10 +164,7 @@
     </div>
 
     <!-- jQuery and Javascript links -->
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
 </body>
 </html>

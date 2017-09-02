@@ -1,22 +1,42 @@
-html {
+body {
+    background: url(../images/stage_background.png);
+    color: white;
+}
 
+hr {
+    border-color: white;
 }
 
 .card {
-    width: 125px;
+    width: 150px;
     margin: 15px;
+    color: black;
 }
 
-.characterSelect {
-    margin-bottom: 20px;
+.card-image {
+    width: 140px;
+    height: 160px;
 }
 
 .well {
     background-color: #eeeeee;
 }
 
+.hide-this {
+    display: none;
+}
+
+#characterSelect,
+#activeBoard {
+    margin-bottom: 20px;
+}
+
 #header {
     padding: 20px;
     margin: 5px;
     text-align: center;
+}
+
+#gameLog {
+    color: black;
 }
