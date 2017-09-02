@@ -11,68 +11,58 @@
 </head>
 
 <body>
-    <!--
-    Needed:
-        Header
-        4 characters
-            name, pic, current HP
-        Player Area
-        Attack button
-        Current fighter area
-        Enemy Area
-        Results / Game Status Area
-    //-->
-
     <div id="header">
         <h1>BlazBlue Super Card Buddy RPG Fight</h1>
         <hr>
     </div>
 
     <div class="container">
-        <div class="row">
-            <!-- 2/3 Area to contain active board state and feedback -->
-            <div class="col-md-8">
+        <!-- Character Select row -->
+        <div id="characterSelect" class="row">
+            <!-- opening instructions -->
+            <div class="row col-md-12">
+                <h2 class="text-center">Select your fighter!</h2>
+            </div>
 
-                <!-- Character Select row -->
-                <div class="row">
-                    <div id="characterSelect">
-                        <!-- opening instructions -->
-                        <h2 class="text-center">Select your fighter!</h2>
-
-                        <!-- Character Selection Card templates -->
-                        <div id="char1" class="card text-center float-left pickable">
-                            <img class="card-img-top card-image"
-                                 src="assets/images/char1.png" alt="">
-                            <h5 class="card-title">Es Mitsurugi</h5>
-                            <p id="char1hp" class="card-text"></p>
-                        </div>
-
-                        <div id="char2" class="card text-center float-left pickable">
-                            <img class="card-img-top card-image"
-                                 src="assets/images/char2.png" alt="">
-                            <h5 class="card-title">Lambda-11</h5>
-                            <p id="char2hp" class="card-text"></p>
-                        </div>
-
-                        <div id="char3" class="card text-center float-left pickable">
-                            <img class="card-img-top card-image"
-                                 src="assets/images/char3.png" alt="">
-                            <h5 class="card-title">Platinum Trinity</h5>
-                            <p id="char3hp" class="card-text"></p>
-                        </div>
-
-                        <div id="char4" class="card text-center float-left pickable">
-                            <img class="card-img-top card-image"
-                                 src="assets/images/char4.png" alt="">
-                            <h5 class="card-title">Tsubaki Yayoi</h5>
-                            <p id="char4hp" class="card-text"></p>
-                        </div>
-
-                    </div>
+            <!-- Character Selection Cards -->
+            <div class="row col-md-12" id="characterArea">
+                <div id="char1" class="card text-center float-left pickable">
+                    <img class="card-img-top card-image"
+                         src="assets/images/char1.png" alt="">
+                    <h5 class="card-title">Es Mitsurugi</h5>
+                    <p id="char1hp" class="card-text"></p>
                 </div>
 
+                <div id="char2" class="card text-center float-left pickable">
+                    <img class="card-img-top card-image"
+                         src="assets/images/char2.png" alt="">
+                    <h5 class="card-title">Lambda-11</h5>
+                    <p id="char2hp" class="card-text"></p>
+                </div>
+
+                <div id="char3" class="card text-center float-left pickable">
+                    <img class="card-img-top card-image"
+                         src="assets/images/char3.png" alt="">
+                    <h5 class="card-title">Platinum Trinity</h5>
+                    <p id="char3hp" class="card-text"></p>
+                </div>
+
+                <div id="char4" class="card text-center float-left pickable">
+                    <img class="card-img-top card-image"
+                         src="assets/images/char4.png" alt="">
+                    <h5 class="card-title">Tsubaki Yayoi</h5>
+                    <p id="char4hp" class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Game row -->
+        <div class="row">
+            <!-- 2/3 Area to contain active board state and feedback -->
+            <div class="col-md-7">
+
                 <!-- Active Board row -->
-                <div id="activeBoard" class="row">
+                <div id="activeBoard" class="row hide-this">
 
                     <!-- Player Area -->
                     <div class="col-md-4">
@@ -127,7 +117,7 @@
                 </div>
 
                 <!-- Game State output row -->
-                <div id="gameLogArea" class="row">
+                <div id="gameLogArea" class="row hide-this">
 
                     <div class="col-md-12 well">
                         <div class="well">
@@ -141,10 +131,10 @@
             </div>
 
             <!-- 1/3 Area to contain the enemy bench -->
-            <div class="col-md-4">
+            <div class="col-md-5">
 
                     <!-- Enemy Bench Area -->
-                    <div id="enemyBenchArea" class="col-md-12">
+                    <div id="enemyBenchArea" class="col-md-12 hide-this">
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Enemy Bench</h3>
