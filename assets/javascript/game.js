@@ -65,9 +65,6 @@ var simpleRPG = {
         $('#gameLogArea').addClass('hide-this');
         $('#enemyBenchArea').addClass('hide-this');
     }
-        // select player character
-        // move player character
-        // move all other characters
 
         // player picks enemy
         // move enemy from bench to field
@@ -92,15 +89,15 @@ window.onload = function () {
         $('#gameLogArea').removeClass('hide-this');
         $('#enemyBenchArea').removeClass('hide-this');
 
-        // set player card alignment
+        // set player card alignment and turn click event off
         $(this).removeClass('pickable');
         $(this).addClass('player-char');
+        $(this).off('click');
 
         // set enemy card alignments
         var objKeys = Object.keys(simpleRPG.characters);
         // loop through each character to set to enemy
         $.each(objKeys, function (index) {
-
             var htmlTarget = simpleRPG.characters[objKeys[index]].htmlChar;
             if ($(htmlTarget).hasClass('pickable')) {
                 $(htmlTarget).removeClass('pickable');
@@ -110,6 +107,8 @@ window.onload = function () {
             else {
                 simpleRPG.characters[objKeys[index]].alignment = 'player';
             }
+            // turn click event off
+            $(htmlTarget).off('click');
         });
 
         // move selected character to player area
@@ -117,6 +116,11 @@ window.onload = function () {
 
         // move non-selected to enemy bench
         $('.enemy-char').appendTo('#enemyBench');
-    })
+    });
+
+    // react to selecting an enemy character
+    $('.enemy-char').on('click', function () {
+        $(this).appendTo('#enemyArea');
+    });
 
 };
